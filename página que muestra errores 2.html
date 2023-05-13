@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Mi Página Web</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav li {
+      display: inline-block;
+      margin-left: 20px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>Mi Página Web</h1>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Acerca de</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Bienvenidos a mi página web</h2>
+    <p>En esta página web podrás encontrar información sobre mí, mis habilidades y mi experiencia.</p>
+
+    <h3>Mis repositorios de GitHub</h3>
+    <ul id="repos-list"></ul>
+  </main>
+
+  <footer>
+    <p>Derechos reservados © 2023 rootuser47363.github.io</p>
+  </footer>
+
+  <script>
+    const apiUrl = "https://api.github.com/users/rootuser47363/repos";
+
+    function handleErrors(response) {
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status} ${response.statusText}`);
+      }
+      return response.json();
+    }
+
+    function createRepoListItem(repo) {
+      const { html_url, name } = repo;
+      const repoItem = document.createElement("li");
+      const repoLink = document.createElement("a");
+      repoLink.href = html_url;
+      repoLink.textContent = name;
+      repoItem.appendChild(repoLink);
+      return repoItem;
+    }
+
+    function displayRepos(repos) {
+      const reposList = document.getElementById("repos-list");
+      repos.forEach(repo => {
+        const repoItem = createRepoListItem(repo);
+        reposList.appendChild(repoItem);
+      });
+    }
+
+    fetch(apiUrl)
+      .then(handleErrors)
+      .then(displayRepos)
+      .catch(error => {
+        console.error(error);
+        // Puedes mostrar un mensaje de error en la página web
+        const reposList = document.getElementById("repos-list");
+        const errorItem = document.createElement("li");
+        errorItem.textContent = "Error al cargar los repositorios.";
+        reposList.appendChild(errorItem);
+      });
+  </script>
+</body>
+</html>
