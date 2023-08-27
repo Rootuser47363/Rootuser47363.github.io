@@ -4,107 +4,7 @@
   <meta charset="utf-8">
   <title>Mi Página Web</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #000; /* Fondo negro */
-      color: #fff; /* Texto blanco */
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background-color: #333;
-      color: #fff;
-      padding: 20px;
-    }
-
-    h1 {
-      margin: 0;
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav li {
-      display: inline-block;
-      margin-left: 20px;
-    }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-    }
-
-    main {
-      padding: 20px;
-    }
-
-    footer {
-      background-color: #333;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-
-    h2, h3 {
-      color: #fff; /* Texto blanco */
-    }
-
-    p {
-      margin-bottom: 15px;
-    }
-
-    ul {
-      margin-left: 20px;
-      padding-left: 0;
-      color: #fff; /* Texto blanco */
-    }
-
-    li {
-      margin-bottom: 10px;
-    }
-
-    a {
-      color: #007bff;
-    }
-    
-    /* Profile styles */
-    
-    .profile-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    .profile-image {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      margin-bottom: 20px;
-    }
-    
-    .profile-stats {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-    
-    .profile-stats img {
-      margin: 0 10px;
-    }
-    
-    .profile-donation {
-      margin-top: 20px;
-    }
+    /* Estilos CSS aquí... */
   </style>
 </head>
 <body>
@@ -123,23 +23,19 @@
   <main>
     <div class="profile-container">
       <h1 align="center">Hi 👋, I'm Rootuser47363</h1>
-
       <p align="center">
         <img src="https://komarev.com/ghpvc/?username=rootuser47363&label=Profile%20views&color=0e75b6&style=flat" alt="rootuser47363" />
       </p>
-
       <p align="center">
         <a href="https://twitter.com/empanadadeUwU47" target="_blank">
           <img src="https://img.shields.io/twitter/follow/empanadadeUwU47?label=Follow%20me%21&style=social" alt="Twitter Follow" />
         </a>
       </p>
-
       <p align="center">
         <a href="https://app.hackthebox.com/profile/1602894" target="_blank">
           <img src="https://www.hackthebox.com/storage/avatars/bce9c2ad4ae5b1143a380b1a4bff78ed.png?v=1" alt="Hack The Box" />
         </a>
       </p>
-
       <h3 align="center">Languages and Tools:</h3>
       <p align="center">
         <a href="https://www.gnu.org/software/bash/" target="_blank">
@@ -148,76 +44,37 @@
         <a href="https://www.linux.org/" target="_blank">
           <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/>
         </a>
-        <!-- Add more tools and languages here -->
+        <!-- Agrega más herramientas y lenguajes aquí -->
       </p>
-
       <p align="center">
         <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=rootuser47363&layout=compact&theme=dark" alt="Top Languages" />
       </p>
-
       <p align="center">
         <img src="https://github-readme-stats.vercel.app/api?username=rootuser47363&show_icons=true&count_private=true&hide=stars&theme=dark" alt="GitHub Stats" />
       </p>
-
       <p align="center">
         <img src="https://github-readme-streak-stats.herokuapp.com/?user=rootuser47363&theme=dark" alt="GitHub Streak" />
       </p>
-
       <p align="center">
         Si quieres apoyarme, puedes hacer una donación a través de mi cuenta de PayPal aquí:
         <a href="https://www.paypal.me/rodrigo47363">https://www.paypal.me/rodrigo47363</a>
       </p>
+      <!-- Hack The Box referral link -->
+      <p align="center">
+        Si quieres unirte a Hack The Box, puedes registrarte a través de mi enlace de referido:
+        <a href="https://referral.hackthebox.com/mzwJfOf">¡Regístrate aquí!</a>
+      </p>
     </div>
-
     <h2>Bienvenidos a mi página web</h2>
     <p>En esta página web podrás encontrar información sobre mí, mis habilidades y mi experiencia.</p>
-
     <h3>Mis repositorios de GitHub</h3>
     <ul id="repos-list"></ul>
   </main>
-
   <footer>
     <p>Derechos reservados © 2023 rootuser47363.github.io</p>
   </footer>
-
   <script>
-    const apiUrl = "https://api.github.com/users/rootuser47363/repos";
-
-    function handleErrors(response) {
-      if (!response.ok) {
-        throw new Error(`Error: ${response.status} ${response.statusText}`);
-      }
-      return response.json();
-    }
-
-    function createRepoListItem(repo) {
-      const { html_url, name } = repo;
-      const repoItem = document.createElement("li");
-      const repoLink = document.createElement("a");
-      repoLink.href = html_url;
-      repoLink.textContent = name;
-      repoItem.appendChild(repoLink);
-      return repoItem;
-    }
-
-    function displayRepos(repos) {
-      const reposList = document.getElementById("repos-list");
-      repos.forEach(repo => {
-        const repoItem = createRepoListItem(repo);
-        reposList.appendChild(repoItem);
-      });
-    }
-
-    fetch(apiUrl)
-      .then(handleErrors)
-      .then(displayRepos)
-      .catch(error => {
-        console.error(error);
-        const reposList = document.getElementById("repos-list");
-        const errorItem = document.createElement("li");
-        errorItem.textContent = "Error al cargar los repositorios.";
-        reposList.appendChild(errorItem);
-      });
+    // JavaScript aquí...
   </script>
 </body>
 </html>
