@@ -4,107 +4,7 @@
   <meta charset="utf-8">
   <title>Mi Página Web</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #000; /* Fondo negro */
-      color: #fff; /* Texto blanco */
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background-color: #333;
-      color: #fff;
-      padding: 20px;
-    }
-
-    h1 {
-      margin: 0;
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav li {
-      display: inline-block;
-      margin-left: 20px;
-    }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-    }
-
-    main {
-      padding: 20px;
-    }
-
-    footer {
-      background-color: #333;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-
-    h2, h3 {
-      color: #fff; /* Texto blanco */
-    }
-
-    p {
-      margin-bottom: 15px;
-    }
-
-    ul {
-      margin-left: 20px;
-      padding-left: 0;
-      color: #fff; /* Texto blanco */
-    }
-
-    li {
-      margin-bottom: 10px;
-    }
-
-    a {
-      color: #007bff;
-    }
-
-    /* Profile styles */
-
-    .profile-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .profile-image {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      margin-bottom: 20px;
-    }
-
-    .profile-stats {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-
-    .profile-stats img {
-      margin: 0 10px;
-    }
-
-    .profile-donation {
-      margin-top: 20px;
-    }
+    /* Estilos CSS aquí... */
   </style>
 </head>
 <body>
@@ -174,5 +74,43 @@
     <p>Derechos reservados © 2023 rootuser47363.github.io</p>
   </footer>
   <script>
-    // JavaScript aquí...
-  </
+    const apiUrl = "https://api.github.com/users/rootuser47363/repos";
+
+    function handleErrors(response) {
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status} ${response.statusText}`);
+      }
+      return response.json();
+    }
+
+    function createRepoListItem(repo) {
+      const { html_url, name } = repo;
+      const repoItem = document.createElement("li");
+      const repoLink = document.createElement("a");
+      repoLink.href = html_url;
+      repoLink.textContent = name;
+      repoItem.appendChild(repoLink);
+      return repoItem;
+    }
+
+    function displayRepos(repos) {
+      const reposList = document.getElementById("repos-list");
+      repos.forEach(repo => {
+        const repoItem = createRepoListItem(repo);
+        reposList.appendChild(repoItem);
+      });
+    }
+
+    fetch(apiUrl)
+      .then(handleErrors)
+      .then(displayRepos)
+      .catch(error => {
+        console.error(error);
+        const reposList = document.getElementById("repos-list");
+        const errorItem = document.createElement("li");
+        errorItem.textContent = "Error al cargar los repositorios.";
+        reposList.appendChild(errorItem);
+      });
+  </script>
+</body>
+</html>
