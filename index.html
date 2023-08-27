@@ -58,10 +58,54 @@
     <a href="https://referral.hackthebox.com/mzwJfOf">¡Regístrate aquí!</a>
   </p>
 
+  <!-- Repositories section -->
+  <h3>Mis repositorios de GitHub:</h3>
+  <ul id="repos-list"></ul>
+
   <!-- Donation link -->
   <p align="center">
     Si quieres apoyarme, puedes hacer una donación a través de mi cuenta de PayPal aquí:
     <a href="https://www.paypal.me/rodrigo47363">https://www.paypal.me/rodrigo47363</a>
   </p>
+
+  <script>
+    const apiUrl = "https://api.github.com/users/rootuser47363/repos";
+
+    function handleErrors(response) {
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status} ${response.statusText}`);
+      }
+      return response.json();
+    }
+
+    function createRepoListItem(repo) {
+      const { html_url, name } = repo;
+      const repoItem = document.createElement("li");
+      const repoLink = document.createElement("a");
+      repoLink.href = html_url;
+      repoLink.textContent = name;
+      repoItem.appendChild(repoLink);
+      return repoItem;
+    }
+
+    function displayRepos(repos) {
+      const reposList = document.getElementById("repos-list");
+      repos.forEach(repo => {
+        const repoItem = createRepoListItem(repo);
+        reposList.appendChild(repoItem);
+      });
+    }
+
+    fetch(apiUrl)
+      .then(handleErrors)
+      .then(displayRepos)
+      .catch(error => {
+        console.error(error);
+        const reposList = document.getElementById("repos-list");
+        const errorItem = document.createElement("li");
+        errorItem.textContent = "Error al cargar los repositorios.";
+        reposList.appendChild(errorItem);
+      });
+  </script>
 </body>
 </html>
