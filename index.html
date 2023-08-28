@@ -186,3 +186,30 @@
   </footer>
 </body>
 </html>
+
+<!-- ... (código HTML anterior) ... -->
+
+<script>
+  const apiUrl = "https://api.github.com/users/rootuser47363/repos";
+
+  // Hacer la solicitud a la API de GitHub
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      const reposList = document.getElementById("repos-list");
+
+      // Recorrer los repositorios y agregarlos a la lista
+      data.forEach(repo => {
+        const listItem = document.createElement("li");
+        const link = document.createElement("a");
+        link.href = repo.html_url;
+        link.textContent = repo.name;
+        link.target = "_blank";
+        listItem.appendChild(link);
+        reposList.appendChild(listItem);
+      });
+    })
+    .catch(error => console.error(error));
+</script>
+</body>
+</html>
