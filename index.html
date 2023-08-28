@@ -11,100 +11,8 @@
       margin: 0;
       padding: 0;
     }
-
-    header {
-      background-color: #333;
-      color: #fff;
-      padding: 20px;
-    }
-
-    h1 {
-      margin: 0;
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav li {
-      display: inline-block;
-      margin-left: 20px;
-    }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-    }
-
-    main {
-      padding: 20px;
-    }
-
-    footer {
-      background-color: #333;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-
-    h2, h3 {
-      color: #fff;
-    }
-
-    p {
-      margin-bottom: 15px;
-    }
-
-    ul {
-      margin-left: 20px;
-      padding-left: 0;
-      color: #fff;
-    }
-
-    li {
-      margin-bottom: 10px;
-    }
-
-    a {
-      color: #007bff;
-    }
-
-    /* Profile styles */
-
-    .profile-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .profile-image {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      margin-bottom: 20px;
-    }
-
-    .profile-stats {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-
-    .profile-stats img {
-      margin: 0 10px;
-    }
-
-    .profile-donation {
-      margin-top: 20px;
-    }
+    
+    /* ... (otros estilos CSS) ... */
   </style>
 </head>
 <body>
@@ -136,7 +44,7 @@
 
       <p align="center">
         <a href="https://app.hackthebox.com/profile/1602894" target="_blank">
-          <img src="ruta_de_la_imagen_de_hack_the_box" alt="Hack The Box" />
+          <img src="https://www.hackthebox.eu/badge/image/1602894" alt="Hack The Box" />
         </a>
       </p>
 
@@ -148,7 +56,7 @@
         <a href="https://www.linux.org/" target="_blank">
           <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/>
         </a>
-        <!-- Add more tools and languages here -->
+        <!-- Agrega más herramientas y lenguajes aquí -->
       </p>
 
       <p align="center">
@@ -168,10 +76,10 @@
         <a href="https://www.paypal.me/rodrigo47363">https://www.paypal.me/ro…</a>
       </p>
 
-      <!-- Hack The Box referral link -->
+      <!-- Enlace de referencia para Hack The Box -->
       <p align="center">
         Si quieres unirte a Hack The Box, puedes registrarte a través de mi enlace de referido:
-        <a href="https://referral.hackthebox.com/mzwJfOf">¡Regístrate aquí!</a>
+        <a href="https://www.hackthebox.eu/invite/ud5pWnWQeF6LoyhLQLLCq9Jt0p7nU5Dz">¡Regístrate aquí!</a>
       </p>
     </div>
 
@@ -184,32 +92,28 @@
   <footer>
     <p>Derechos reservados © 2023 rootuser47363.github.io</p>
   </footer>
-</body>
-</html>
 
-<!-- ... (código HTML anterior) ... -->
+  <script>
+    const apiUrl = "https://api.github.com/users/rootuser47363/repos";
 
-<script>
-  const apiUrl = "https://api.github.com/users/rootuser47363/repos";
+    // Hacer la solicitud a la API de GitHub
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+        const reposList = document.getElementById("repos-list");
 
-  // Hacer la solicitud a la API de GitHub
-  fetch(apiUrl)
-    .then(response => response.json())
-    .then(data => {
-      const reposList = document.getElementById("repos-list");
-
-      // Recorrer los repositorios y agregarlos a la lista
-      data.forEach(repo => {
-        const listItem = document.createElement("li");
-        const link = document.createElement("a");
-        link.href = repo.html_url;
-        link.textContent = repo.name;
-        link.target = "_blank";
-        listItem.appendChild(link);
-        reposList.appendChild(listItem);
-      });
-    })
-    .catch(error => console.error(error));
-</script>
+        // Recorrer los repositorios y agregarlos a la lista
+        data.forEach(repo => {
+          const listItem = document.createElement("li");
+          const link = document.createElement("a");
+          link.href = repo.html_url;
+          link.textContent = repo.name;
+          link.target = "_blank";
+          listItem.appendChild(link);
+          reposList.appendChild(listItem);
+        });
+      })
+      .catch(error => console.error(error));
+  </script>
 </body>
 </html>
