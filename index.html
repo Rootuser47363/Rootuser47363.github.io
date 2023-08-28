@@ -16,21 +16,27 @@
       background-color: #333;
       color: #fff;
       padding: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
     }
 
     h1 {
       margin: 0;
     }
 
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
     nav ul {
       list-style: none;
       margin: 0;
       padding: 0;
-      display: flex;
-      gap: 20px;
+    }
+
+    nav li {
+      display: inline-block;
+      margin-left: 20px;
     }
 
     nav a {
@@ -77,10 +83,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      background-color: #111;
-      padding: 20px;
-      border-radius: 5px;
-      margin-bottom: 20px;
     }
 
     .profile-image {
@@ -107,8 +109,8 @@
 </head>
 <body>
   <header>
-    <h1>Mi Página Web</h1>
     <nav>
+      <h1>Mi Página Web</h1>
       <ul>
         <li><a href="#">Inicio</a></li>
         <li><a href="#">Acerca de</a></li>
@@ -121,19 +123,23 @@
   <main>
     <div class="profile-container">
       <h1 align="center">Hi 👋, I'm Rootuser47363</h1>
+
       <p align="center">
         <img src="https://komarev.com/ghpvc/?username=rootuser47363&label=Profile%20views&color=0e75b6&style=flat" alt="rootuser47363" />
       </p>
+
       <p align="center">
         <a href="https://twitter.com/empanadadeUwU47" target="_blank">
           <img src="https://img.shields.io/twitter/follow/empanadadeUwU47?label=Follow%20me%21&style=social" alt="Twitter Follow" />
         </a>
       </p>
+
       <p align="center">
         <a href="https://app.hackthebox.com/profile/1602894" target="_blank">
-          <img src="https://www.hackthebox.com/storage/avatars/bce9c2ad4ae5b1143a380b1a4bff78ed.png?v=1" alt="Hack The Box" />
+          <img src="ruta_de_la_imagen_de_hack_the_box" alt="Hack The Box" />
         </a>
       </p>
+
       <h3 align="center">Languages and Tools:</h3>
       <p align="center">
         <a href="https://www.gnu.org/software/bash/" target="_blank">
@@ -144,34 +150,39 @@
         </a>
         <!-- Add more tools and languages here -->
       </p>
+
       <p align="center">
         <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=rootuser47363&layout=compact&theme=dark" alt="Top Languages" />
       </p>
+
       <p align="center">
         <img src="https://github-readme-stats.vercel.app/api?username=rootuser47363&show_icons=true&count_private=true&hide=stars&theme=dark" alt="GitHub Stats" />
       </p>
+
       <p align="center">
         <img src="https://github-readme-streak-stats.herokuapp.com/?user=rootuser47363&theme=dark" alt="GitHub Streak" />
       </p>
+
       <p align="center">
         Si quieres apoyarme, puedes hacer una donación a través de mi cuenta de PayPal aquí:
-        <a href="https://www.paypal.me/rodrigo47363">https://www.paypal.me/rodrigo47363</a>
+        <a href="https://www.paypal.me/rodrigo47363">https://www.paypal.me/ro…</a>
       </p>
+
       <!-- Hack The Box referral link -->
       <p align="center">
         Si quieres unirte a Hack The Box, puedes registrarte a través de mi enlace de referido:
         <a href="https://referral.hackthebox.com/mzwJfOf">¡Regístrate aquí!</a>
       </p>
     </div>
+
     <h2>Bienvenidos a mi página web</h2>
     <p>En esta página web podrás encontrar información sobre mí, mis habilidades y mi experiencia.</p>
     <h3>Mis repositorios de GitHub</h3>
     <ul id="repos-list"></ul>
   </main>
+
   <footer>
     <p>Derechos reservados © 2023 rootuser47363.github.io</p>
   </footer>
-  <script>
-    const apiUrl = "https://api.github.com/users/rootuser47363/repos";
-
-   
+</body>
+</html>
