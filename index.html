@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <title>Mi Página Web</title>
@@ -11,8 +11,44 @@
       margin: 0;
       padding: 0;
     }
-    
-    /* ... (otros estilos CSS) ... */
+
+    header {
+      background-color: #333; /* Color de fondo de la barra de navegación */
+      padding: 10px; /* Espaciado interno para mejorar la apariencia */
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between; /* Alinear elementos a los extremos del contenedor flex */
+      align-items: center; /* Centrar verticalmente los elementos */
+    }
+
+    nav h1 {
+      margin: 0;
+      font-size: 1.5em; /* Tamaño de fuente ligeramente más grande para el título */
+    }
+
+    nav ul {
+      list-style-type: none; /* Eliminar viñetas de la lista */
+      padding: 0;
+      margin: 0;
+      display: flex;
+    }
+
+    nav ul li {
+      margin-right: 15px; /* Espaciado entre elementos de la lista */
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .profile-container {
+      text-align: center; /* Centrar contenido en el contenedor principal */
+    }
+
+    /* Estilos adicionales aquí */
   </style>
 </head>
 <body>
